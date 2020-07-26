@@ -1,0 +1,36 @@
+<%- include("./partials/header.ejs") %>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<div class="container">
+  
+    <%var bestResult = 0; var Recent = [];%>
+    <%results.forEach(function(result){%>
+        <% if(bestResult<result.wpm){
+            bestResult = result.wpm;
+            bestDate = result.date;
+        }%>
+        <!-- <p>wpm:<%=result.wpm%></p>
+        <p>date:<%=result.date%></p> -->
+    <%});%>
+    <%for(var i = results.length;i>results.length-5||i!=0;i--){
+        Recent.push(results[i-1].wpm);}%>
+    <br>
+    <br>
+    
+    <h2 id="result-h2">Here's your result...</h2>
+    <br>
+    
+    <div id="container" style="margin:auto;width:80%; height:400px;">
+        
+<script>
+    document.addEventListener('DOMContentLoaded', function () {var myChart = Highcharts.chart('container', {chart: {type: 'spline'},title: {text: 'Typing Speed'},xAxis: {categories: ['Best','<%=results[results.length-1].date%>', '<%=results[results.length-2].date%>', '<%=results[results.length-3].date%>','<%=results[results.length-4].date%>','<%=results[results.length-5].date%>']},yAxis: {title: {text: 'wpm'}},series: [{name: '<%=currentUser.username%>',data: [<%=bestResult%>,<%=Recent[0]%>, <%=Recent[1]%>, <%=Recent[2]%>,<%=Recent[3]%>,<%=Recent[4]%>]}]});});
+</script>
+    
+
+</div>
+
+    
+</div>
+
+<%-include("./partials/footer.ejs") %>
+
+

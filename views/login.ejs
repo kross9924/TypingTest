@@ -1,0 +1,23 @@
+<%-include("./partials/header.ejs")%>
+<div class="container">
+    <div id="login">
+        <br>
+        <br>
+        <h3>Login Here</h3>
+        <hr class="w-25">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button>Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<%-include("./partials/footer.ejs")%>

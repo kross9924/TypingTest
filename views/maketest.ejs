@@ -1,0 +1,21 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="container">
+    <br>
+    <br>
+    <h3 id="new-test-h3">Create New Test</h3>
+    <hr class="w-25"">
+    <form class="newtest" action="/maketest" method="POST">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Name of new test">
+            </div>
+        <div class="form-group">
+            <textarea name="data" id="newtest-area" rows="10"  placeholder="Make your own test here..."></textarea>
+        </div>
+        <div class="form-group">
+            <button>Make Test</button>
+        </div>
+    </form>
+</div>
+
+<%- include("./partials/footer.ejs") %>
